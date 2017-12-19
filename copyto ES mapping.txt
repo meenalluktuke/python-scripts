@@ -1,0 +1,50 @@
+PUT http://10.97.252.12:9200/copyto_v1/copyto/_mapping?ignore_conflicts=true
+{
+        "properties": {
+          "@timestamp": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+          "@version": {
+            "type": "string"
+          },
+          "attack": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "attack1": {
+            "type": "string",
+            "index": "not_analyzed",
+            "copy_to": [
+              "attack"
+            ]
+          },
+          "attack2": {
+            "type": "string",
+			"index": "not_analyzed",
+            "copy_to": [
+              "attack"
+            ]
+          },
+          "attack3": {
+            "type": "string",
+			"index": "not_analyzed",
+          },
+          "eventid": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+
